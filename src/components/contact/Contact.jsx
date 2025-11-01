@@ -11,6 +11,7 @@ const Contact = () => {
   const formRef = useRef();
 
   // Initialize EmailJS
+  //
   useEffect(() => {
     emailjs.init('P7QLsiayjNDohhRHw'); // Replace with your Public Key
   }, []);
@@ -43,7 +44,7 @@ const Contact = () => {
   };
   return (
     <section id="contact">
-      <h5>Get In Touch</h5>
+      <h5>Get In Touch!</h5>
       <h5>
         I do receive your messages and will respond asap if the valid email is
         provided :)
