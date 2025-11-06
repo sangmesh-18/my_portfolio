@@ -1,0 +1,54 @@
+.custom-cursor {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 10px rgba(77, 181, 255, 0.5);
+}
+
+.custom-cursor.visible {
+  opacity: 0.8;
+}
+
+/* Hover effect on interactive elements */
+.custom-cursor.hovering {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(77, 181, 255, 0.3);
+  border: 2px solid var(--color-primary);
+}
+
+/* Ensure default cursor is visible */
+body {
+  cursor: default !important;
+}
+
+* {
+  cursor: default !important;
+}
+
+a,
+button,
+input,
+textarea,
+[role="button"],
+.btn {
+  cursor: pointer !important;
+}
+
+/* Hide cursor on mobile devices */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+

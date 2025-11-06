@@ -1,58 +1,51 @@
 import React from 'react';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
+import ScrollAnimation from '../animations/ScrollAnimation';
 import './experience.css';
 
 const Experience = () => {
+  const skills = [
+    'HTML / CSS',
+    'JavaScript',
+    'REST API,GraphQL',
+    'Bootstrap, Tailwind',
+    'React ,  Next Js',
+    'Typescript',
+    'MongoDB,PostgreSQL',
+    'Node.js, Express.js',
+    'Responsive Design',
+    'Redux, Redux-toolkit, Context API'
+  ];
+
   return (
     <section id="experience">
-      <h5>The Skills I Have</h5>
-      <h2>Skills</h2>
+      <ScrollAnimation animation="fadeInDown" delay={0.1}>
+        <h5>The Skills I Have</h5>
+      </ScrollAnimation>
+      <ScrollAnimation animation="fadeInUp" delay={0.2}>
+        <h2>Skills</h2>
+      </ScrollAnimation>
       <div className="container experience__container">
-        <div className="experience__frontend">
-          <h3>Full-Stack Development</h3>
-          <div className="experience__content">
-          <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>HTML / CSS</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>JavaScript</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>REST API,GraphQL</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Bootstrap, Tailwind</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>React ,  Next Js</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Typescript</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>MongoDB,PostgreSQL</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Node.js, Express.js</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Responsive Design</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Redux, Redux-toolkit, Context API</h4>
-            </article>
+        <ScrollAnimation animation="scaleIn" delay={0.3}>
+          <div className="experience__frontend">
+            <h3>Full-Stack Development</h3>
+            <div className="experience__content">
+              {skills.map((skill, index) => (
+                <ScrollAnimation 
+                  key={index} 
+                  animation="fadeInLeft" 
+                  delay={0.4 + (index * 0.05)}
+                  duration={0.5}
+                >
+                  <article className="experience__details">
+                    <BsFillPatchCheckFill className="experience__details-icon" />
+                    <h4>{skill}</h4>
+                  </article>
+                </ScrollAnimation>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   )

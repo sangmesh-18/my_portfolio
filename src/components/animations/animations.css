@@ -1,0 +1,369 @@
+/* Base animation styles - invisible but maintaining layout */
+.scroll-animation {
+  opacity: 0;
+  visibility: hidden;
+  /* Ensure elements maintain their space when invisible - prevents layout shift */
+  /* Elements are still in the document flow, just invisible */
+  /* GPU acceleration for smooth animations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Performance optimizations */
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  /* Smooth transitions with better easing */
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Prevent flickering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure headings maintain their original layout */
+.scroll-animation h1,
+.scroll-animation h2,
+.scroll-animation h3,
+.scroll-animation h4,
+.scroll-animation h5,
+.scroll-animation h6 {
+  display: block;
+  width: 100%;
+}
+
+/* For section headings that should be centered */
+section > .scroll-animation > h5,
+section > .scroll-animation > h2 {
+  text-align: center;
+}
+
+/* For block-level content */
+.scroll-animation > div,
+.scroll-animation > article,
+.scroll-animation > p,
+.scroll-animation > form,
+.scroll-animation > ul {
+  display: block;
+  width: 100%;
+}
+
+/* About/Intro section - maintain grid layout */
+.about__container > .scroll-animation {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.about__container > .scroll-animation > .about__me {
+  width: 100%;
+  height: 100%;
+}
+
+.about__content .scroll-animation {
+  display: block;
+  width: 100%;
+}
+
+.about__content .scroll-animation > .about__cards {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem;
+}
+
+.about__content .scroll-animation > p {
+  margin: 2rem 0 2.6rem;
+  color: var(--color-light);
+}
+
+.about__content .scroll-animation > a {
+  display: inline-block;
+}
+
+/* Footer specific styles - maintain original layout */
+footer .scroll-animation {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+footer .scroll-animation > a.footer__logo {
+  display: inline-block !important;
+  width: auto;
+  margin-bottom: 2rem;
+}
+
+footer .scroll-animation > ul.permalinks {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto 3rem;
+  width: 100%;
+}
+
+footer .scroll-animation > .footer__socials {
+  display: flex !important;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+footer .scroll-animation > .footer__copyright {
+  display: block;
+  width: 100%;
+  margin-bottom: 4rem;
+  color: var(--color-bg);
+}
+
+.scroll-animation.visible {
+  opacity: 1;
+  visibility: visible;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fade In Up Animation - GPU accelerated */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fade In Down Animation - GPU accelerated */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fade In Left Animation - GPU accelerated */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fade In Right Animation - GPU accelerated */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fade In Animation - Smooth */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Scale In Animation - GPU accelerated */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.8, 0.8, 1);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+.scaleIn {
+  animation-name: scaleIn;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Zoom In Animation - GPU accelerated */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.5, 0.5, 1);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Slide Up Animation - GPU accelerated */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideUp {
+  animation-name: slideUp;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Rotate In Animation - GPU accelerated */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, -10deg) scale3d(0.9, 0.9, 1);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg) scale3d(1, 1, 1);
+  }
+}
+
+.rotateIn {
+  animation-name: rotateIn;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Bounce In Animation - GPU accelerated */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale3d(0.3, 0.3, 1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
+  }
+  70% {
+    transform: translate3d(0, 0, 0) scale3d(0.9, 0.9, 1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Stagger animation for children */
+.stagger-children > * {
+  animation-delay: calc(var(--stagger-delay, 0) * 0.1s);
+}
+
+/* Performance optimizations are already in base .scroll-animation */
+
+/* About/Intro responsive styles */
+@media screen and (max-width: 1024px) {
+  .about__container > .scroll-animation {
+    width: 100%;
+  }
+
+  .about__container > .scroll-animation > .about__me {
+    width: 50%;
+    margin: 2rem auto 4rem;
+  }
+
+  .about__content .scroll-animation > p {
+    margin: 1rem 0 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about__container > .scroll-animation > .about__me {
+    width: 65%;
+    margin: 0rem auto 3rem;
+  }
+
+  .about__content .scroll-animation > .about__cards {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem;
+  }
+
+  .about__content .scroll-animation > p {
+    margin: 1.5rem 0;
+  }
+
+  /* Footer responsive styles */
+  footer .scroll-animation > ul.permalinks {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  footer .scroll-animation > .footer__socials {
+    margin-bottom: 2.6rem;
+  }
+}
+
+/* Disable animations on reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animation {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+

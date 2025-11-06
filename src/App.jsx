@@ -7,11 +7,13 @@ import Intro from './components/intro/Intro';
 import Portfolio from './components/portfolio/Portfolio';
 // import Testimonials from './components/testimonials/Testimonials';
 import Topbar from './components/topbar/Topbar';
+import CustomCursor from './components/cursor/CustomCursor';
 
 
 const App = () => {
   return (
     <>
+      <CustomCursor />
       <Header />
       <Topbar />
       <Intro />

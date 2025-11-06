@@ -7,6 +7,7 @@ import IMG4 from "../../assets/fh-huquq.png";
 // import IMG5 from "../../assets/Jokes Project.jpg";
 // import IMG6 from "../../assets/Project4.jpg";
 import React from "react";
+import ScrollAnimation from '../animations/ScrollAnimation';
 
 //Portfolio function
 const Portfolio = () => {
@@ -32,7 +33,7 @@ const Portfolio = () => {
       github: "https://github.com/sangmesh-18/projects/tree/main/chat-app",
     },
     {
-      id: 2,
+      id: 3,
       title: "Doctor appointment website",
       img: IMG4,
       description:
@@ -42,7 +43,7 @@ const Portfolio = () => {
       github: "https://github.com/sangmesh-18/projects/tree/main/Doctor%20Appointment",
     },
     {
-      id: 3,
+      id: 4,
       title: "Job Portal Webs",
       img: IMG2,
       description: "A Job Portal Website for job seekers and employers.",
@@ -50,77 +51,58 @@ const Portfolio = () => {
      // link: "https://fs-code-task-two.vercel.app/",
       github: "https://github.com/Rasif-Taghizada/FS-Code-Task",
     },
-    // {
-    //   id: 4,
-    //   title: "Startup Landing Page",
-    //   img: IMG3,
-    //   description:
-    //     "A dedicated, standalone web page built for specific campaigns and target audiences.",
-    //   technologies: "Html | CSS | JavaScript | Next Js",
-    //   link: "https://alpha-agency-project.vercel.app/",
-    //   github: "https://github.com/Rasif-Taghizada/Alpha-Agency-Project",
-    // },
-    // {
-    //   id: 5,
-    //   title: "Jokes Project with Typescript",
-    //   img: IMG5,
-    //   description:
-    //     "For when you need a fast funny joke, here are some short jokes to get anyone giggling.",
-    //   technologies: "Html | Styled-components | Typescript",
-    //   link: "https://jokes-project.vercel.app/",
-    //   github: "https://github.com/Rasif-Taghizada/Joke-App",
-    // },
-    // {
-    //   id: 6,
-    //   title: "Fs Poster Website",
-    //   img: IMG6,
-    //   description:
-    //     "Real-world group project which is still in progress and will provide educational platform for future young developers",
-    //   technologies: "Html | Scss | Javascript",
-    //   link: "https://fs-poster-project.vercel.app/",
-    //   github: "https://github.com/Rasif-Taghizada/Fs-Poster-Project",
-    // },
   ];
 
   return (
     <section id="portfolio">
-      <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+      <ScrollAnimation animation="fadeInDown" delay={0.1}>
+        <h5>My Recent Work</h5>
+      </ScrollAnimation>
+      <ScrollAnimation animation="fadeInUp" delay={0.2}>
+        <h2>Portfolio</h2>
+      </ScrollAnimation>
 
       <div className="container portfolio__container">
-        {soloProjects.map((pro) => (
-          <article className="portfolio__item" key={pro.id}>
-            {/* <div className="portfolio__item-image">
-              <img src={pro.img} alt={pro.title} />
-            </div> */}
-            <div className="portfolio__item-content">
-              <h3>{pro.title}</h3>
-              <p>{pro.description}</p>
-              <p>{pro.technologies}</p>
-            </div>
-            <div className="portfolio__item-cta">
-              <a
-                href={pro.github}
-                target="_blank"
-                className="btn"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-             {
-              pro.link && (
+        {soloProjects.map((pro, index) => (
+          <ScrollAnimation 
+            key={pro.id} 
+            animation="scaleIn" 
+            delay={0.3 + (index * 0.1)}
+            duration={0.6}
+          >
+            <article className="portfolio__item">
+              {/* <div className="portfolio__item-image">
+                <img src={pro.img} alt={pro.title} />
+              </div> */}
+              <div className="portfolio__item-content">
+                <h3>{pro.title}</h3>
+                <p>{pro.description}</p>
+                <p>{pro.technologies}</p>
+              </div>
+              <div className="portfolio__item-cta">
                 <a
-                  href={pro.link}
+                  href={pro.github}
                   target="_blank"
                   className="btn"
                   rel="noreferrer"
                 >
-                  Live Demo
+                  GitHub
                 </a>
-              )
-             }
-            </div>
-          </article>
+               {
+                pro.link && (
+                  <a
+                    href={pro.link}
+                    target="_blank"
+                    className="btn"
+                    rel="noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                )
+               }
+              </div>
+            </article>
+          </ScrollAnimation>
         ))}
       </div>
     </section>

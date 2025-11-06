@@ -52,7 +52,7 @@ form span {
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
 }
 
 input,
@@ -64,6 +64,75 @@ textarea {
     border: 2px solid var(--color-primary-variant);
     resize: none;
     color: var(--color-white);
+    margin-bottom: 1.5rem !important;
+}
+
+/* Remove margin from last input/textarea before button */
+input:last-of-type,
+textarea:last-of-type {
+    margin-bottom: 1.5rem !important;
+}
+
+form button {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+form span {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Ensure form spacing works with ScrollAnimation wrapper - HIGH SPECIFICITY */
+.contact__container .scroll-animation > form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+}
+
+.contact__container .scroll-animation > form input,
+.contact__container .scroll-animation > form textarea {
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+}
+
+.contact__container .scroll-animation > form input:last-of-type,
+.contact__container .scroll-animation > form textarea:last-of-type {
+    margin-bottom: 1.5rem !important;
+}
+
+.contact__container .scroll-animation > form button {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Additional specificity for form fields */
+.contact__container form input,
+.contact__container form textarea {
+    margin-bottom: 2px !important;
+}
+
+.contact__container form input:last-of-type,
+.contact__container form textarea:last-of-type {
+    margin-bottom: 2px !important;
+}
+
+/* Direct form styling */
+#contact form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+}
+
+#contact form input,
+#contact form textarea {
+    margin-bottom: 2px !important;
+}
+
+#contact form button {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 @media screen and (max-width: 1024px){
